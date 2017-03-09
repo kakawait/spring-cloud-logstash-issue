@@ -1,0 +1,5 @@
+myapp:
+  fluentd:
+    host: fluentd_host
+  stash:
+    host: stash_host

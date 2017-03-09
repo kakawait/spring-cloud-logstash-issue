@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+	<springProperty scope="context" name="stashHost" source="myapp.stash.host" defaultValue="unresolvable_host"/>
+	<appender name="STASH" class="net.logstash.logback.appender.LogstashSocketAppender">
+		<host>${stashHost}</host>
+	</appender>
+	<!--<springProperty scope="context" name="fluentHost" source="myapp.fluentd.host" defaultValue="unresolvable_host"/>-->
+	<!--<appender name="FLUENT" class="ch.qos.logback.more.appenders.DataFluentAppender">-->
+		<!--<remoteHost>${fluentHost}</remoteHost>-->
+	<!--</appender>-->
+
+	<root level="INFO">
+		<!--<appender-ref ref="FLUENT"/>-->
+		<appender-ref ref="STASH"/>
+	</root>
+</configuration>
